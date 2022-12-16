@@ -1,0 +1,16 @@
+<div class="login">
+  <form class="logform" [formGroup]="signInform" (ngsubmit)="onsubmit()">
+    <div class="txt">
+      <input id="user" type="text" placeholder="Username" formControlName="username"/>
+      <label for="user" class="entypo-user"></label>
+    </div>
+    <div class="txt">
+      <input id="pwd" type="password" placeholder="Password" formControlName="pwd" />
+      <label for="pwd" class="entypo-lock"></label>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">sign in</button>
+      <span>
+        <a href="javascript:void(0)" class="entypo-user-add register">Register</a>
+      </span>
+    </div>
