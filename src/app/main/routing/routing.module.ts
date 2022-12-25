@@ -6,10 +6,13 @@ import { HomeComponent } from 'src/app/pages/home/home.component';
 import { MenuComponent } from 'src/app/pages/menu/menu.component';
 import { AboutComponent } from 'src/app/pages/about/about.component';
 import { ContactComponent } from 'src/app/pages/contact/contact.component';
+import { AuthGuard } from 'src/app/services/auth.guard';
+import { SinglproductComponent } from 'src/app/pages/singlproduct/singlproduct.component';
 
 const routes:Route[]=[
 {
   path:'',
+  canActivate:[AuthGuard],
   component:MainComponent,
   children:[
     {
@@ -19,6 +22,10 @@ const routes:Route[]=[
     {
       path:'menu',
       component:MenuComponent
+    },
+    {
+      path:'singlproduct',
+      component:SinglproductComponent
     },
     {
       path:'about',

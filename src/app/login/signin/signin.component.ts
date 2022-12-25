@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
 import { Router,Navigation, } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -8,12 +9,10 @@ import { Router,Navigation, } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
   signInform:FormGroup ;
-  private _router: any;
-  private _fb: any;
-  constructor(private_router:Router,private_fb:FormBuilder){
-    this.signInform=this._fb.Group({
-      username: this._fb.control('', (Validators.required, Validators.email)),
-      pwd:this._fb.control ('', (Validators.required, Validators.minLength(6)))
+  constructor(private _router:Router,private _fb:FormBuilder, private _auth:AuthService){
+    this.signInform=this._fb.group({
+      email: this._fb.control('kminchelle', (Validators.required, Validators.email)),
+      pwd:this._fb.control ('0lelplR', (Validators.required, Validators.minLength(6)))
     })
   }
   ngOnInit(): void {
@@ -24,7 +23,10 @@ export class SigninComponent implements OnInit {
   onsubmit(){
     if(this.signInform.valid){
       console.log('form is valid',this.signInform.value);
-      this._router.navigate('/main');
+      this._auth.authUser(this.signInform.value).subscribe(()=>{
+        this._router.navigate(['/main/home']);
+      })
+      
       
       
     }else{
@@ -34,7 +36,7 @@ export class SigninComponent implements OnInit {
     
   }
   gotoregister(){
-    this._router.navigate('/register');
+    this._router.navigate(['/register']);
   }
 
 }

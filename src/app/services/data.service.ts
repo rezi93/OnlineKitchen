@@ -1,23 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable,map,tap, concatMap } from 'rxjs';
-import { IProduct } from '../interface/iproduct';
+import { __values } from 'tslib';
+import { IProduct, IProductBaseReponse } from '../interface/iproduct';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private _http: any;
+  IProduct: any;
+  
   
   
    
-  constructor(private_http:HttpClient) { 
+  constructor(private _http: HttpClient, private _route:Router) { 
     
     
   }
 
-  getProductList():Observable<IProduct>{
-return this._http.get('https://jsonplaceholder.typicode.com/posts')
+  getProductList():Observable<IProduct[]>{
+return this._http.get<IProductBaseReponse>('https://dummyjson.com/products').pipe(
+  map(result=>result.products)
+)
   
 
   }

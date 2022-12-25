@@ -6,25 +6,28 @@ import { HomeComponent } from '../pages/home/home.component';
 import { AboutComponent } from '../pages/about/about.component';
 import { ContactComponent } from '../pages/contact/contact.component';
 
-import { RegisterComponent } from '../login/register/register.component';
+
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { SigninComponent } from '../login/signin/signin.component';
+
 import { RouterModule } from '@angular/router';
 import { RoutingModule, } from './routing/routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { MainComponent } from './main.component';
+import { MenuComponent } from '../pages/menu/menu.component';
 
 
 
 @NgModule({
   declarations: [
+    MainComponent,
     NavbarComponent,
     FooterComponent,
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    SigninComponent,
-    RegisterComponent
+    MenuComponent
+    
   ],
   imports: [
     CommonModule,
@@ -40,8 +43,8 @@ import { Observable } from 'rxjs';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    SigninComponent,
-    RegisterComponent,
+    MenuComponent
+    
     
   ]
 })

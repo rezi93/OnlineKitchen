@@ -1,8 +1,22 @@
 export interface IProduct {
-    userId: number,
-    id: number,
+    Id: number,
     title: string,
-    body:string,
+    description: string,
+    price: number,
+    discountPercentage: number,
+    rating: number,
+    stock: number,
+    brand: string,
+    category: string,
+    thumbnail: string,
+    images: string[]
 
 }
+export interface IProductBaseReponse{
+    total: number,
+    skip: number,
+    limit: number,
+    products:IProduct[]
+}
+export const TOKEN_KEY:string='token'
 

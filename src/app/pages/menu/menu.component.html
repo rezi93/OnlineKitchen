@@ -2,15 +2,15 @@
 
     <div class="row">
 
-        <div class="col-lg-4" >
+        <div class="col-lg-4" *ngFor="let item of product">
 
             <div class="foodbox mt-3 mb-3">
-                <img src="">
-                <h1></h1>
-                <p></p>
-                <p></p>
+                <img src="{{item.images}}">
+                <h1>{{item.brand}}</h1>
+                <p>{{item.description}}</p>
+                <p>{{item.price| currency:'usd'}}</p>
                 <br/>
-                <a class="buybtn" >Buy Now <i class="bi bi-bag"></i></a>
+                <a class="buybtn" (click)="getProductDEtail(item.Id)">Buy Now <i class="bi bi-bag"></i></a>
             </div>
 
         </div>

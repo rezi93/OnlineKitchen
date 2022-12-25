@@ -2,9 +2,15 @@ body{
     background-color: black;
 }
 .login{
-    width: 100%;
-    
-    background-color: rgb(246, 50, 19);
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+    background-color: rgb(13, 13, 13);
+    border-radius: 25px;
+}
+.signh2{
+    font-size: 25px;
+    color: red;
 }
 
 .txt{
@@ -16,18 +22,27 @@ body{
     width: 50%;
     height: 50px;
     margin-top: 200px;
-    margin-left: 250px;
+    margin-left: 150px;
 }
 #pwd{
     width: 50%;
     height: 50px;
-    margin-left: 250px;
+    margin-left: 150px;
 }
 .buttons{
     margin-top: 50px;
-    margin-left: 550px;
+    margin-left: 150px;
     
 }
 .entypo-user-add{
+    margin-left: 150px;
+}
+#butt{
+    
+    margin-left: 250px;
+    cursor: pointer;
+}
+.error{
+    background-color: green;
     margin-left: 150px;
 }

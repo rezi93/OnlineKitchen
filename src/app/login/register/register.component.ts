@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { FormGroup, Validators,FormControl,NgForm } from '@angular/forms';
+import { FormBuilder,FormGroup, Validators,FormControl,NgForm } from '@angular/forms';
 import { Route,Router } from '@angular/router';
 
 @Component({
@@ -10,16 +10,16 @@ import { Route,Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
-  submitted:false | undefined;
-  constructor(private_router:Router) {
-    this.registerForm =new FormGroup({
-      title:new FormControl ('', Validators.required),
-      firstName:new FormControl ('', Validators.required),
+  
+  constructor(private _router:Router,private _fb:FormBuilder) {
+    this.registerForm =this._fb.group({
+      gender:this._fb.control('', (Validators.required)),
+      firstName:this._fb.control('', Validators.required),
       lastName:new FormControl ('', Validators.required),
-      email: new FormControl('', (Validators.required, Validators.email)),
-      password:new FormControl ('', (Validators.required, Validators.minLength(6))),
-      confirmPassword:new FormControl ('', Validators.required),
-      acceptTerms:new FormControl (false, Validators.requiredTrue)
+      email: this._fb.control('', Validators.required),
+      password:this._fb.control ('', (Validators.required, Validators.minLength(6))),
+      confirmPassword:this._fb.control ('', (Validators.required, Validators.minLength(6))),
+      acceptTerms:this._fb.control('', Validators.required)
   })
    }
 
@@ -37,9 +37,6 @@ export class RegisterComponent implements OnInit {
     }
 
   }
-  onReset() {
-    this.submitted = false;
-    this.registerForm.reset();
-}
+  
 }
 

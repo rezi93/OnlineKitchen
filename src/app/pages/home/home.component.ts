@@ -11,19 +11,23 @@ import { IProduct } from 'src/app/interface/iproduct';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-product:IProduct[]=[];
-  private _service: any;
-constructor(private_service:DataService,private_router:Router){
+
+ 
+constructor(private _service:DataService,private _router:Router){
 
 }
   ngOnInit(): void {
     
+      
   }
+  getOrder(){
+    this._router.navigate(['/main/menu'])
 
-getproduct(){
-  this._service.getProductList().subscribe((data: any)=>console.log(data))
+  }
+  
+
     
     
   
 }
-}
+

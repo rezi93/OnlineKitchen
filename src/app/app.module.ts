@@ -16,12 +16,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './login/signin/signin.component';
 import{HttpClientModule} from '@angular/common/http'
 import { DataService } from './services/data.service';
+import { SinglproductComponent } from './pages/singlproduct/singlproduct.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-  
-    MainComponent,
+  SigninComponent,
+    RegisterComponent,
+    SinglproductComponent
        
     
   ],
@@ -30,7 +32,8 @@ import { DataService } from './services/data.service';
     AppRoutingModule,
     MainModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
     
     
   ],
